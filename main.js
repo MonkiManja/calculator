@@ -10,10 +10,14 @@ function multiply(x,y){
 function divide(x,y){
     return x/y;
 }
+function modulo(x,y){
+    return x%y;
+}
 
 function operate(operator, x, y){
-    if(operator == "+"){add(x,y)}
-    if(operator == "-"){subtract(x,y)}
-    if(operator == "*"){multiply(x,y)}
-    if(operator == "/"){divide(x,y)}
+    if(operator == "+"){return add(x,y)}
+    if(operator == "-"){return subtract(x,y)}
+    if(operator == "*"){return multiply(x,y)}
+    if(operator == "/"){return divide(x,y)}
+    if(operator == "%"){return modulo(x,y)}
 }
