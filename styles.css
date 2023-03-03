@@ -1,19 +1,21 @@
 :root{
+    --background: #F6E1C3;
     --calc-top: #E9A178;
-    --calc-bottom: #F6E1C3;
+    --calc-bottom: #f7ecdd;
     --title-color: #ffffff;
     --numbers-1: #A84448;
     --details: #7A3E65;
 }
 
 body{
-    background-color: var(--calc-bottom);
+    background-image :linear-gradient(rgba(246,225,195,0.9)0%,rgba(246,225,195,1) ),url(https://wallpapers.com/images/hd/fundamental-mathematical-principles-autpcbrlj4b804q5.webp);
+    overflow: hidden; /* Hide scrollbars */
     font-family: 'Roboto', sans-serif;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 99vh;
     width: 99vw;
 }
 
@@ -24,20 +26,20 @@ p, h1, h2, h3, a {
 #title{
     color: var(--title-color);
     font-family: 'Pacifico', cursive;
-    text-shadow:#000000 1px 0 3px;
+    text-shadow: 2px 2px 1px black;
 }
 
 #calculator{
     background-color: var(--calc-bottom);
+    
     width: 500px;
-    height: 750px;
+    height: 760px;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color:var(--calc-top);
+    
+    box-shadow: 6px 6px rgb(0,0,0,0.5);
 }
 
 #screen{
@@ -56,6 +58,10 @@ p, h1, h2, h3, a {
     margin-top:45px;
     margin-right: 40px;
 }
+#screen > h2{
+    font-size: 2.4em;
+    margin-top: 35px;
+}
 
 button{
     font-family: 'Roboto', sans-serif;
@@ -66,6 +72,7 @@ button{
     background-color: white;
     border-radius: 30px;
     border-width: 0;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 /*Armar luego la grid bien*/
 #buttons{
@@ -77,8 +84,9 @@ button{
 }
 
 button:active{
-    background-color: rgb(240,240,240);
-    color:#7A3E65
+    background-color: rgb(219, 219, 219);
+    color:#000000;
+    box-shadow: inset 5px 5px rgb(15,15,15,0.5);
 }
 
 #modulo, #float{

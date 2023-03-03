@@ -10,5 +10,6 @@ Things to add:
 - A memory of the last 5 or 10 calculations
 - Modulo (%) and floating point buttons
 - Making the equal sign bigger
+- Keyboard compatibility
 
 Maybe i leave it as it's. Incomplete in a way, but i did more than TOP asked for :) 
