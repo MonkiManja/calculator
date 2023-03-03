@@ -1,3 +1,11 @@
+const screenNumber = document.querySelector("#screen > h1")
+
+
+const allNumbers = document.querySelectorAll(".numbers")
+const allFunctions = document.querySelectorAll(".function")
+
+let numList = []
+
 function add(x,y){
     return x+y;
 }
@@ -21,3 +29,92 @@ function operate(operator, x, y){
     if(operator == "/"){return divide(x,y)}
     if(operator == "%"){return modulo(x,y)}
 }
+
+
+
+function analizeOperation (list){
+    function isValid(list, index){ // Given a operation list and an index, checks out if the operation is valid. The list has to be simplified with simplifyList before operation
+        if(list[index-1] == undefined || list[index+1] == undefined || isNaN(list[index-1]) || isNaN(list[index+1])){
+            return false; 
+        } else {
+            return true;
+        }
+    }
+    function simplifyList(list){ //This takes the list and groups the numbers
+        let newList = []
+        list.forEach((elem) => {
+            if(isNaN(elem)){
+                newList.push(elem)
+            } else{
+                if(isNaN(newList[newList.length-1])){
+                    newList.push(elem)
+                } else {
+                    newList[newList.length-1] = parseInt(newList[newList.length-1].toString()+`${elem}`)
+                } 
+            }
+        });
+        console.log("Simplified list =", newList)
+        return newList
+    }
+    list = simplifyList(list);
+    // Now i have to iterate through all the list
+    function findOperation(list, func){ //This returns a new list with the operation completed or in case there's not any operation with that func, returns false
+        
+        let funcIndex = list.findIndex((elem) => {return elem == func}) 
+        let restList = list.slice(funcIndex + 2)
+        let beforeList = []
+        if (funcIndex > 2){
+            beforeList = list.slice(0,funcIndex-1)
+        } 
+        
+
+        if(funcIndex > 0 && isValid(list, funcIndex)){
+            console.log([...beforeList, operate(list[funcIndex],list[funcIndex-1],list[funcIndex+1]), ...restList ])
+            let rta =[...beforeList, operate(list[funcIndex],list[funcIndex-1],list[funcIndex+1]), ...restList ]
+            return rta
+        } else {
+            if(isValid(list, funcIndex)){
+                displayError(); // It's not functional, need to make it
+            }
+            return false
+        }
+    }
+    let funcList = ["/","*","-","+"];
+    for(let func in funcList){
+        console.log(funcList[func])
+        while(findOperation(list,funcList[func]) != false){
+            list = findOperation(list, funcList[func])
+            console.log("list: " + list)
+        }
+    }
+    console.log("final list: ", list)
+}
+
+allNumbers.forEach((num)=>{
+    console.log("passd")
+    num.addEventListener("click", (e)=>{
+        numList.push(e.target.textContent)
+        screenNumber.textContent= numList.join("")
+    })
+})
+allFunctions.forEach((num)=>{
+    console.log("passd")
+    num.addEventListener("click", (e)=>{
+        numList.push(e.target.textContent)
+        screenNumber.textContent= numList.join("")
+    })
+})
+
+document.querySelector("#back").addEventListener("click", () => {
+    console.log("back")
+    numList.pop();
+    screenNumber.textContent= numList.join("")
+    if(numList.length == 0){
+        screenNumber.textContent = ". . ."
+    }
+})
+document.querySelector("#clear").addEventListener("click", () => {
+    console.log("back")
+    numList= [];
+    screenNumber.textContent= ". . ."
+})
