@@ -1,6 +1,7 @@
 :root{
     --background: #F6E1C3;
     --calc-top: #E9A178;
+    --calc-equal: #fcd2ba;
     --calc-bottom: #f7ecdd;
     --title-color: #ffffff;
     --numbers-1: #A84448;
@@ -8,15 +9,15 @@
 }
 
 body{
-    background-image :linear-gradient(rgba(246,225,195,0.9)0%,rgba(246,225,195,1) ),url(https://wallpapers.com/images/hd/fundamental-mathematical-principles-autpcbrlj4b804q5.webp);
+    background-image :linear-gradient(rgba(246,225,195,0.9)0%,rgba(246,225,195,1) ),url(/math-bg.webp);
     overflow: hidden; /* Hide scrollbars */
     font-family: 'Roboto', sans-serif;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 99vh;
-    width: 99vw;
+    height: 100vh;
+    width: 100vw;
 }
 
 p, h1, h2, h3, a {
@@ -31,15 +32,21 @@ p, h1, h2, h3, a {
 
 #calculator{
     background-color: var(--calc-bottom);
-    
     width: 500px;
     height: 760px;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     box-shadow: 6px 6px rgb(0,0,0,0.5);
+}
+
+.calc-grid-equal-span{
+    grid-row: span 2;
+}
+#equal{
+    height: 200px;
+    background-color: var(--calc-equal)
 }
 
 #screen{
@@ -67,8 +74,8 @@ button{
     font-family: 'Roboto', sans-serif;
     font-size: 1.9em;
     font-weight: 400;
-    height: 100px;
-    width: 110px;
+    height: 90px;
+    width: 100px;
     background-color: white;
     border-radius: 30px;
     border-width: 0;
@@ -76,10 +83,10 @@ button{
 }
 /*Armar luego la grid bien*/
 #buttons{
-    margin-top: 16px;
+    margin-top: 25px;
     display:grid;
-    gap:5px;
-    grid-template-columns: auto auto auto auto;
+    gap:10px;
+    grid-template-columns: repeat(4, 1fr);
     
 }
 
