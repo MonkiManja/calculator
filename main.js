@@ -1,4 +1,5 @@
 const screenNumber = document.querySelector("#screen > h1")
+const screenAnswer = document.querySelector("#screen > h2")
 
 
 const allNumbers = document.querySelectorAll(".numbers")
@@ -59,23 +60,16 @@ function analizeOperation (list){
     list = simplifyList(list);
     // Now i have to iterate through all the list
     function findOperation(list, func){ //This returns a new list with the operation completed or in case there's not any operation with that func, returns false
-        
         let funcIndex = list.findIndex((elem) => {return elem == func}) 
         let restList = list.slice(funcIndex + 2)
         let beforeList = []
         if (funcIndex > 2){
             beforeList = list.slice(0,funcIndex-1)
         } 
-        
-
         if(funcIndex > 0 && isValid(list, funcIndex)){
-            console.log([...beforeList, operate(list[funcIndex],list[funcIndex-1],list[funcIndex+1]), ...restList ])
             let rta =[...beforeList, operate(list[funcIndex],list[funcIndex-1],list[funcIndex+1]), ...restList ]
             return rta
         } else {
-            if(isValid(list, funcIndex)){
-                displayError(); // It's not functional, need to make it
-            }
             return false
         }
     }
@@ -87,7 +81,11 @@ function analizeOperation (list){
             console.log("list: " + list)
         }
     }
+    if((list.length > 1) || (list[0] in funcList)){
+        return "error"
+    }
     console.log("final list: ", list)
+    return list;
 }
 
 allNumbers.forEach((num)=>{
@@ -117,4 +115,8 @@ document.querySelector("#clear").addEventListener("click", () => {
     console.log("back")
     numList= [];
     screenNumber.textContent= ". . ."
+})
+
+document.querySelector("#equal").addEventListener("click", ()=>{
+    screenAnswer.textContent = analizeOperation(numList)
 })

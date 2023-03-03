@@ -1,50 +1,87 @@
+:root{
+    --calc-top: #E9A178;
+    --calc-bottom: #F6E1C3;
+    --title-color: #ffffff;
+    --numbers-1: #A84448;
+    --details: #7A3E65;
+}
+
 body{
-    background-color: rgb(15,15,15);
+    background-color: var(--calc-bottom);
     font-family: 'Roboto', sans-serif;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 90vh;
+    width: 99vw;
 }
 
 p, h1, h2, h3, a {
-    color: white;
+    color: var(--numbers-1);
+}
+
+#title{
+    color: var(--title-color);
+    font-family: 'Pacifico', cursive;
+    text-shadow:#000000 1px 0 3px;
 }
 
 #calculator{
-    background-color: rgb(30,30,30);
+    background-color: var(--calc-bottom);
     width: 500px;
-    height: 800px;
-    border-radius: 20px;
+    height: 750px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
-    
     align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color:var(--calc-top);
 }
 
 #screen{
     height: 200px;
-    width: 480px;
-    background-color: black;
-    margin: 10px;
-    border-radius: 10px;
+    width: 500px;
+    background-color: var(--calc-top);
+    margin: 0px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
 
 }
-#screen > h1, h2{
+#screen > h1, #screen > h2{
+    color:#A84448;
     font-size: 1.8em;
-    margin: 20px;
+    text-align: end;
+    margin-top:45px;
+    margin-right: 40px;
 }
 
 button{
-    height: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.9em;
+    font-weight: 400;
+    height: 100px;
     width: 110px;
     background-color: white;
     border-radius: 30px;
+    border-width: 0;
 }
 /*Armar luego la grid bien*/
 #buttons{
+    margin-top: 16px;
     display:grid;
     gap:5px;
     grid-template-columns: auto auto auto auto;
+    
+}
+
+button:active{
+    background-color: rgb(240,240,240);
+    color:#7A3E65
+}
+
+#modulo, #float{
+    background-color: rgb(230,230,230);
 }
 
