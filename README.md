@@ -1,6 +1,8 @@
 # calculator
 The odin project - Foundations final project
 
+I dont know why in github pages the page looks really bad. That's a shame :(
+
 It's not intended to be responsive, but adjusted a few things so at least is usable
 
 !!!Buttons in gray are not added yet!!!
