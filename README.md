@@ -1,14 +1,15 @@
 # calculator
 The odin project - Foundations final project
 
+It's not intended to be responsive, but adjusted a few things so at least is usable
+
 !!!Buttons in gray are not added yet!!!
 
 I did my own solution for the order of calculation, it wasn't asked at all but i liked the challenge.
 
 Things to add: 
-- Options menu?
 - Color themes
-- A memory of the last 5 or 10 calculations
+- Prettier memory card
 - Modulo (%) and floating point buttons
 - Readme viewer in page
 

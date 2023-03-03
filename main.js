@@ -5,6 +5,7 @@ const screenAnswer = document.querySelector("#screen > h2")
 const allNumbers = document.querySelectorAll(".numbers")
 const allFunctions = document.querySelectorAll(".function")
 
+let answerList = []
 let numList = []
 
 function add(x,y){
@@ -89,14 +90,12 @@ function analizeOperation (list){
 }
 
 allNumbers.forEach((num)=>{
-    console.log("passd")
     num.addEventListener("click", (e)=>{
         numList.push(e.target.textContent)
         screenNumber.textContent= numList.join("")
     })
 })
 allFunctions.forEach((num)=>{
-    console.log("passd")
     num.addEventListener("click", (e)=>{
         numList.push(e.target.textContent)
         screenNumber.textContent= numList.join("")
@@ -104,7 +103,6 @@ allFunctions.forEach((num)=>{
 })
 
 document.querySelector("#back").addEventListener("click", () => {
-    console.log("back")
     numList.pop();
     screenNumber.textContent= numList.join("")
     if(numList.length == 0){
@@ -118,7 +116,8 @@ document.querySelector("#clear").addEventListener("click", () => {
 })
 
 document.querySelector("#equal").addEventListener("click", ()=>{
-    screenAnswer.textContent = analizeOperation(numList)
+    screenAnswer.textContent = analizeOperation(numList);
+    newAnswerList(screenAnswer.textContent);
 })
 
 //Keyboard compatibility
@@ -133,6 +132,7 @@ document.addEventListener("keydown", (event) => {
         screenNumber.textContent= numList.join("");
     } else if(event.key == "Enter"){
         screenAnswer.textContent = analizeOperation(numList)
+        newAnswerList(screenAnswer.textContent);
     } else if(event.key == "Backspace"){
         numList.pop();
         screenNumber.textContent= numList.join("")
@@ -140,4 +140,19 @@ document.addEventListener("keydown", (event) => {
             screenNumber.textContent = ". . ."
         }
     }
+})
+
+
+function newAnswerList(num){
+    let li = 1;
+    answerList.push(num);
+    console.log(answerList.length)
+    for(let i = answerList.length-1; (i >= answerList.length-5)  && (i >= 0); i--){
+        document.querySelector(`#li-${li}`).textContent = answerList[i];
+        li++;
+    }
+}
+
+document.querySelector("#memory-button").addEventListener("click", ()=>{
+    document.querySelector(".memory-card").classList.toggle("invisible")
 })

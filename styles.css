@@ -100,3 +100,71 @@ button:active{
     background-color: rgb(230,230,230);
 }
 
+/*Side menu*/
+
+#readme-button, #memory-button, #color-button {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    left: 30px;
+    border-radius: 50%;
+    background-color: var(--calc-top);
+    color: white;
+}
+
+
+#color-button{
+    top: 40vh;
+}
+#memory-button{
+    top: 50vh
+}
+#readme-button{ 
+    top: 60vh
+}
+
+.memory-card{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    position: fixed;
+    height: 400px;
+    width: 300px;
+    background-color: var(--calc-top);
+    border-radius: 50px;
+    right: 170px;
+    transition: opacity 1s;
+    
+}
+.invisible{
+    opacity: 0;
+}
+
+
+.memory-card >h1 {
+    color: var(--calc-bottom);
+}
+ul{
+
+    padding: 20px;
+    color: var(--calc-bottom);
+    margin-top: -10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+}
+
+
+@media(max-width: 1500px){
+    .memory-card{
+        right: 20px;
+        width: 200px;
+        height: 230px;
+        padding-top: 10px;
+        
+    }
+    .memory-card > h1{
+        
+        display: none;
+    }
+} 
