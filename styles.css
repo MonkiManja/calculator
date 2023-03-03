@@ -129,12 +129,13 @@ button:active{
     justify-content:center;
     align-items: center;
     position: fixed;
-    height: 400px;
+    height: 340px;
     width: 300px;
     background-color: var(--calc-top);
     border-radius: 50px;
     right: 170px;
     transition: opacity 1s;
+    
     
 }
 .invisible{

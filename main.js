@@ -156,3 +156,10 @@ function newAnswerList(num){
 document.querySelector("#memory-button").addEventListener("click", ()=>{
     document.querySelector(".memory-card").classList.toggle("invisible")
 })
+
+document.querySelector("#color-button").addEventListener("click", ()=>{
+    alert("Color theme changer. Will add it in the future")
+})
+document.querySelector("#readme-button").addEventListener("click", ()=>{
+    alert("README.md reader. Will add it in the future")
+})
