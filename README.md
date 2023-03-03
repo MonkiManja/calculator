@@ -10,7 +10,6 @@ Things to add:
 - Color themes
 - A memory of the last 5 or 10 calculations
 - Modulo (%) and floating point buttons
-- Keyboard compatibility
 - Readme viewer in page
 
 Maybe i leave it as it's. Incomplete in a way, but i did more than TOP asked for :) 
