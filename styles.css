@@ -144,6 +144,9 @@ button:active{
 
 .memory-card >h1 {
     color: var(--calc-bottom);
+    font-size: 1.6em;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 1px black;
 }
 ul{
 
@@ -152,8 +155,12 @@ ul{
     margin-top: -10px;
     font-family: 'Roboto', sans-serif;
     font-size: 2em;
+    text-shadow: 2px 2px 1px black;
 }
 
+.material-symbols-outlined{
+    text-shadow: 2px 2px 1px black;
+}
 
 @media(max-width: 1500px){
     .memory-card{
