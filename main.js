@@ -120,3 +120,24 @@ document.querySelector("#clear").addEventListener("click", () => {
 document.querySelector("#equal").addEventListener("click", ()=>{
     screenAnswer.textContent = analizeOperation(numList)
 })
+
+//Keyboard compatibility
+
+document.addEventListener("keydown", (event) => {
+    let funcList = ["+","-","*","/","Enter","Backspace"];
+    if(Number.isInteger(parseInt(event.key))) {
+        numList.push(parseInt(event.key));
+        screenNumber.textContent= numList.join("");
+    } else if (funcList.includes(event.key.toString()) && event.key != "Enter" && event.key != "Backspace"){
+        numList.push(event.key);
+        screenNumber.textContent= numList.join("");
+    } else if(event.key == "Enter"){
+        screenAnswer.textContent = analizeOperation(numList)
+    } else if(event.key == "Backspace"){
+        numList.pop();
+        screenNumber.textContent= numList.join("")
+        if(numList.length == 0){
+            screenNumber.textContent = ". . ."
+        }
+    }
+})
